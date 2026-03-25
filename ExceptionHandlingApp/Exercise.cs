@@ -42,8 +42,34 @@ namespace ExceptionHandlingApp
             Console.Write("Enter Dividend: ");
             int dividend = int.Parse(Console.ReadLine());
 
-            return new int[] { divisor, dividend };
 
+
+            if (divisor < 0 || dividend < 0)
+            {
+                int count = 0;
+                if (divisor < 0)
+                {
+                    count++;
+                }
+                if (dividend < 0)
+                {
+                    count++;
+                }
+                int[] values = new int[count];
+
+                int i = 0;
+                if (divisor < 0)
+                {
+                    values[i] = divisor;
+                    i++;
+                }
+                if (dividend < 0)
+                {
+                    values[i] = dividend;
+                }
+                throw new NegativeIntegerInputException(values);
+                }
+                return new int[] { divisor, dividend };
         }
     }
 }
