@@ -28,6 +28,10 @@ namespace ExceptionHandlingApp
                 {
                     Console.WriteLine("Invalid input only integers allowed, Please try again.");
                 }
+                catch(DivideByZeroException)
+                {
+                    Console.WriteLine("Can not divide a zero. Please try again.");
+                }
             }
         }
         private static int[] GetUserInputs()
